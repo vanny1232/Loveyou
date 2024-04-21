@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Love</title>
+    <style>
+      body {
+        background-image: url("gif/blurred-valentine-s-day-wallpaper/4871703.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+      .contaner {
+        padding: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        backdrop-filter: blur(10px);
+        background-color: rgba(255, 255, 255, 0.37);
+        border: none;
+        border-radius: 10px;
+      }
+      h1 {
+        font-size: 40px;
+        text-align: center;
+        font-family: Khmer OS Battambang;
+      }
+      .btn_Yes {
+        background-color: green;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-family: "Times New Roman", Times, serif;
+        font-size: 60px;
+        margin-top: 20px;
+      }
+      .btn_No,
+      .btn_No1,
+      .btn_No2,
+      .btn_No3,
+      .btn_No4,
+      .btn_No5 {
+        background-color: red;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-family: "Times New Roman", Times, serif;
+        font-size: 60px;
+        margin-top: 20px;
+      }
+      img {
+        width: 250px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="contaner">
+      <h1>ព្រមធ្វើសង្សារបងទៅហី</h1>
+      <img src="gif/tonton-friends-cute.gif" alt="" />
+      <div class="Txt"></div>
+      <div class="btn_box">
+        <button class="btn_Yes">Yes</button>
+        <button class="btn_No">No</button>
+      </div>
+    </div>
+
+    <script>
+      let BtnYes = document.querySelector(".btn_Yes");
+      let BtnNo = document.querySelector(".btn_No");
+      let img = document.querySelector("img");
+      let h1 = document.querySelector("h1");
+
+      BtnYes.addEventListener("click", () => {
+        img.src = "gif/te-amo-en-todos-los-universos.gif";
+        h1.innerHTML = "ពេលនេះអូនជាសង្សារ​បងហើយ";
+        BtnYes.style.display = "none";
+        BtnNo.style.display = "none";
+      });
+      BtnNo.addEventListener("click", () => {
+        if (BtnNo.className == "btn_No") {
+          BtnNo.style.fontSize = "50px";
+          BtnNo.className = "btn_No1";
+          img.src = "gif/tkthao219-bubududu.gif";
+          BtnYes.style.fontSize = "70px";
+        } else if (BtnNo.className == "btn_No1") {
+          BtnNo.style.fontSize = "40px";
+          BtnNo.className = "btn_No2";
+          img.src = "gif/cute-dog.gif";
+          BtnYes.style.fontSize = "80px";
+        } else if (BtnNo.className == "btn_No2") {
+          BtnNo.style.fontSize = "30px";
+          BtnNo.className = "btn_No3";
+          img.src = "gif/peach-goma-peach-and-goma.gif";
+          BtnYes.style.fontSize = "90px";
+        } else if (BtnNo.className == "btn_No3") {
+          BtnNo.style.fontSize = "20px";
+          BtnNo.className = "btn_No4";
+          img.src = "gif/triste.gif";
+          BtnYes.style.fontSize = "100px";
+        } else if (BtnNo.className == "btn_No4") {
+          BtnNo.style.fontSize = "10px";
+          img.src = "gif/tkthao219-quby.gif";
+          BtnNo.className = "btn_No5";
+          BtnYes.style.fontSize = "100px";
+        } else if (BtnNo.className == "btn_No5") {
+          BtnNo.remove();
+          img.src = "gif/bad-boy-baseball.gif";
+
+          h1.innerHTML = "ត្រូវតែព្រមគ្មានជម្រើសទៀតទេ​😈";
+          Txt.appendChild(h2);
+          BtnYes.style.fontSize = "100px";
+        }
+      });
+    </script>
+  </body>
+</html>
