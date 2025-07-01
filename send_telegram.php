@@ -4,10 +4,10 @@
 header('Content-Type: application/json');
 
 // Put your bot token and chat ID here
-//$botToken = 'YOUR_BOT_TOKEN';
-$botToken='7444502388:AAEMXI7u_bQcQocQ1dqC_7KrtZUfrExi-P8';
-// $chatId = 'YOUR_CHAT_ID';
-$chatId='5158405142';
+$botToken = 'YOUR_BOT_TOKEN';
+
+ $chatId = 'YOUR_CHAT_ID';
+
 
 // Get the raw POST data (JSON)
 $data = json_decode(file_get_contents('php://input'), true);
