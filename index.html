@@ -80,47 +80,70 @@
       let img = document.querySelector("img");
       let h1 = document.querySelector("h1");
 
-      BtnYes.addEventListener("click", () => {
-        img.src = "gif/te-amo-en-todos-los-universos.gif";
-        h1.innerHTML = "ពេលនេះអូនជាសង្សារ​បងហើយ";
-        BtnYes.style.display = "none";
-        BtnNo.style.display = "none";
-      });
-      BtnNo.addEventListener("click", () => {
-        if (BtnNo.className == "btn_No") {
-          BtnNo.style.fontSize = "50px";
-          BtnNo.className = "btn_No1";
-          img.src = "gif/tkthao219-bubududu.gif";
-          BtnYes.style.fontSize = "70px";
-        } else if (BtnNo.className == "btn_No1") {
-          BtnNo.style.fontSize = "40px";
-          BtnNo.className = "btn_No2";
-          img.src = "gif/cute-dog.gif";
-          BtnYes.style.fontSize = "80px";
-        } else if (BtnNo.className == "btn_No2") {
-          BtnNo.style.fontSize = "30px";
-          BtnNo.className = "btn_No3";
-          img.src = "gif/peach-goma-peach-and-goma.gif";
-          BtnYes.style.fontSize = "90px";
-        } else if (BtnNo.className == "btn_No3") {
-          BtnNo.style.fontSize = "20px";
-          BtnNo.className = "btn_No4";
-          img.src = "gif/triste.gif";
-          BtnYes.style.fontSize = "100px";
-        } else if (BtnNo.className == "btn_No4") {
-          BtnNo.style.fontSize = "10px";
-          img.src = "gif/tkthao219-quby.gif";
-          BtnNo.className = "btn_No5";
-          BtnYes.style.fontSize = "100px";
-        } else if (BtnNo.className == "btn_No5") {
-          BtnNo.remove();
-          img.src = "gif/bad-boy-baseball.gif";
+      function sendTelegramMessage(text) {
+  fetch('send_telegram.php', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ text }),
+  })
+    .then(res => res.json())
+    .then(data => {
+      if (data.success) {
+        console.log('Message sent to Telegram');
+      } else {
+        console.error('Telegram send error:', data.error);
+      }
+    })
+    .catch(console.error);
+}
 
-          h1.innerHTML = "ត្រូវតែព្រមគ្មានជម្រើសទៀតទេ​😈";
-          Txt.appendChild(h2);
-          BtnYes.style.fontSize = "100px";
-        }
-      });
+BtnYes.addEventListener('click', () => {
+  img.src = 'gif/te-amo-en-todos-los-universos.gif';
+  h1.innerHTML = 'ពេលនេះអូនជាសង្សារ​បងហើយ';
+  BtnYes.style.display = 'none';
+  BtnNo.style.display = 'none';
+
+  sendTelegramMessage('User clicked YES to be your lover 💚');
+});
+
+BtnNo.addEventListener('click', () => {
+  if (BtnNo.className == 'btn_No') {
+    BtnNo.style.fontSize = '50px';
+    BtnNo.className = 'btn_No1';
+    img.src = 'gif/tkthao219-bubududu.gif';
+    BtnYes.style.fontSize = '70px';
+  } else if (BtnNo.className == 'btn_No1') {
+    BtnNo.style.fontSize = '40px';
+    BtnNo.className = 'btn_No2';
+    img.src = 'gif/cute-dog.gif';
+    BtnYes.style.fontSize = '80px';
+  } else if (BtnNo.className == 'btn_No2') {
+    BtnNo.style.fontSize = '30px';
+    BtnNo.className = 'btn_No3';
+    img.src = 'gif/peach-goma-peach-and-goma.gif';
+    BtnYes.style.fontSize = '90px';
+  } else if (BtnNo.className == 'btn_No3') {
+    BtnNo.style.fontSize = '20px';
+    BtnNo.className = 'btn_No4';
+    img.src = 'gif/triste.gif';
+    BtnYes.style.fontSize = '100px';
+  } else if (BtnNo.className == 'btn_No4') {
+    BtnNo.style.fontSize = '10px';
+    img.src = 'gif/tkthao219-quby.gif';
+    BtnNo.className = 'btn_No5';
+    BtnYes.style.fontSize = '100px';
+  } else if (BtnNo.className == 'btn_No5') {
+    BtnNo.remove();
+    img.src = 'gif/bad-boy-baseball.gif';
+
+    h1.innerHTML = 'ត្រូវតែព្រមគ្មានជម្រើសទៀតទេ​😈';
+
+    BtnYes.style.fontSize = '100px';
+  }
+
+  sendTelegramMessage('User clicked NO on your love question 😞');
+});
+
     </script>
   </body>
 </html>
